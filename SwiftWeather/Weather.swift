@@ -20,7 +20,7 @@ class Weather: NSObject, NSCoding{
   
   // MARK: - NSCoding
   // http://stackoverflow.com/questions/25631727/adding-nscoding-as-an-extension
-  /// Initilization with coder
+  /// Initialization with coder
   required convenience init?(coder decoder: NSCoder) {
     self.init()
     

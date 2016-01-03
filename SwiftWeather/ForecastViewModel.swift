@@ -17,7 +17,7 @@ struct ForecastViewModel {
   var maxDayTemperature: Observable<Int>
   var minDayTemperature: Observable<Int>
   
-  /// Initilization
+  /// Initialization
   init(forecast: Forecast) {
     self.weekDay = Observable(forecast.weekDay)
     self.icon = Observable(forecast.icon)

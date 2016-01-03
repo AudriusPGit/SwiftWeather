@@ -8,7 +8,7 @@
 
 import Foundation
 
-/// Notifies observer then observable's value changes. Base on:
+/// Notifies observer then observable's value changes. Based on:
 /// * http://rasic.info/bindings-generics-swift-and-mvvm/
 /// * http://fuckingclosuresyntax.com/
 /// * http://blog.scottlogic.com/2015/02/11/swift-kvo-alternatives.html

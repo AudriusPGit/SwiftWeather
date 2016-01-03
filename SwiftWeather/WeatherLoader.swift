@@ -184,7 +184,7 @@ extension WeatherLoader: ApiOpenWeatherMapOrgProtocol {
             return
           }
           
-          //Collect all forecsts
+          //Collect all forecasts
           weather.forecasts.append(forecast)
         }
         

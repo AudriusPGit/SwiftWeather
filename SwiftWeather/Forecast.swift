@@ -8,7 +8,7 @@
 
 import Foundation
 
-/// Holds data for forecats, also implements NSCoding for saving and loading model to file
+/// Holds data for forecasts, also implements NSCoding for saving and loading model to file
 class Forecast: NSObject, NSCoding {
   
   /// Properties
@@ -20,7 +20,7 @@ class Forecast: NSObject, NSCoding {
   // MARK: - NSCoding
   // http://stackoverflow.com/questions/25631727/adding-nscoding-as-an-extension
   
-  /// Initilization with coder
+  /// Initialization with coder
   required convenience init?(coder decoder: NSCoder) {
     
     self.init()

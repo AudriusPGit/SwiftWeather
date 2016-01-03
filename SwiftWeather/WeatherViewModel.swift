@@ -25,7 +25,7 @@ struct WeatherViewModel {
   var weatherLoader: WeatherLoader!
   weak var delegate: WeatherViewModelProtocol?
   
-  /// Initilization
+  /// Initialization
   init() {
     self.city = Observable("")
     self.icon = Observable("")

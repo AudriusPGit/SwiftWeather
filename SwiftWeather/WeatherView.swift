@@ -21,13 +21,13 @@ class WeatherView: NibView{
     return "WeatherView"
   }
   
-  /// Initilization
+  /// Initialization
   required init(frame: CGRect) {
     super.init(frame: frame)
     
   }
   
-  /// Initilization
+  /// Initialization
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
     

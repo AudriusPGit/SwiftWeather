@@ -25,12 +25,12 @@ class ForecastView: NibView{
     return "ForecastView"
   }
   
-  /// Initilization
+  /// Initialization
   required init(frame: CGRect) {
     super.init(frame: frame)
     
   }
-  /// Initilization
+  /// Initialization
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
     

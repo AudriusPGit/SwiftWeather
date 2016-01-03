@@ -8,7 +8,7 @@
 
 import UIKit
 
-/// Loaded view from xib file, requires overridde nibName property in subclasses
+/// Loaded view from xib file, requires override nibName property in sub-classes
 class NibView : UIView{
   
   /// Returns xib file name, must be overridden in subclasses
@@ -16,14 +16,14 @@ class NibView : UIView{
     fatalError("This property must be overridden")
   }
   
-  /// Initilization
+  /// Initialization
   required override init(frame: CGRect) {
     super.init(frame: frame)
     
     setupXibViewFrom(xibFileName: xibFileName)
   }
   
-  /// Initilization
+  /// Initialization
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
     

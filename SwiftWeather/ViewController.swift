@@ -19,7 +19,7 @@ class ViewController: UIViewController {
   /// View model
   var weatherViewModel: WeatherViewModel!
   
-  /// Initilization
+  /// Initialization
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
     

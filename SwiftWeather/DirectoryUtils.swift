@@ -9,7 +9,7 @@
 import Foundation
 
 
-/// Firectory utils, propobly should rename to file utils
+/// Directory utils, probably should rename to file utils
 class DicectoryUtils {
   
   /// Returns directory path
