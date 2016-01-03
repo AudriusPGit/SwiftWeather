@@ -45,7 +45,7 @@ class WeatherIcons {
   }
   
   /// Saves icon on disk
- static  func saveIconOnDisk(imageData data: NSData, iconName: String){
+ static func saveIconOnDisk(imageData data: NSData, iconName: String){
     data.writeToFile(DicectoryUtils.pathFor(fileName: iconName), atomically: true)
   }
   
