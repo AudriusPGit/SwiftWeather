@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WeatherView" customModule="SwiftWeather" customModuleProvider="target">
+            <connections>
+                <outlet property="icon" destination="gWc-FZ-3hc" id="AkP-Ei-Rdh"/>
+                <outlet property="temperature" destination="ojy-LH-xcb" id="Ia3-8a-BTH"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vilnius" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="8p8-qi-aiX">
+                    <rect key="frame" x="8" y="8" width="304" height="33"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="8p8-qi-aiX" secondAttribute="height" multiplier="304:33" id="P21-bS-Qff"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="42"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gWc-FZ-3hc" userLabel="Icon">
+                    <rect key="frame" x="22" y="117" width="277" height="249"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ojy-LH-xcb" userLabel="Temperature">
+                    <rect key="frame" x="22" y="470" width="277" height="90"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="ojy-LH-xcb" secondAttribute="height" multiplier="277:90" id="WeD-zz-k9E"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="86"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="ojy-LH-xcb" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="1Dp-Zg-XFF"/>
+                <constraint firstItem="8p8-qi-aiX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="7wV-nc-AIJ"/>
+                <constraint firstItem="gWc-FZ-3hc" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="EZa-eb-GlJ"/>
+                <constraint firstItem="gWc-FZ-3hc" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="22" id="HYE-Qe-rHD"/>
+                <constraint firstAttribute="bottom" secondItem="ojy-LH-xcb" secondAttribute="bottom" constant="8" id="Sia-Fe-E0y"/>
+                <constraint firstItem="8p8-qi-aiX" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="dAK-dD-1Ie"/>
+                <constraint firstItem="ojy-LH-xcb" firstAttribute="top" secondItem="gWc-FZ-3hc" secondAttribute="bottom" constant="104" id="jNK-Kb-tcm"/>
+                <constraint firstItem="8p8-qi-aiX" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="ufu-Jh-EaO"/>
+                <constraint firstItem="gWc-FZ-3hc" firstAttribute="top" secondItem="8p8-qi-aiX" secondAttribute="bottom" constant="76" id="xgc-TB-g0u"/>
+                <constraint firstItem="ojy-LH-xcb" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="22" id="z8C-1s-R5g"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+        </view>
+    </objects>
+</document>
