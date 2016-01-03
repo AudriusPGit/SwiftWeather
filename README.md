@@ -2,8 +2,8 @@
 
 Simple Weather app developed in swift, covered topics:
 
-* Autolayout & Interface builder
+* Auto-layout & Interface builder
 * Closures
-* Optionalas
+* Optionals
 * Classes & Structs
 * Control flow
