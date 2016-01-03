@@ -47,7 +47,7 @@ class ForecastView: NibView{
       
       viewModel?.icon.bindAndFire {
         [unowned self] in
-        self.icon.image = WeatherIcons.sharedInstance.icon(String($0))
+        self.icon.image = WeatherIcons.icon(String($0))
       }
       
       viewModel?.maxDayTemperature.bindAndFire {

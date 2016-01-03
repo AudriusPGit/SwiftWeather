@@ -20,8 +20,8 @@ typealias WeatherParams = [String: String]
 /// ApiOpenWeatherMapOrgProtocol protocol
 protocol ApiOpenWeatherMapOrgProtocol{
   
-  func loadFromApiOpenWeatherMapOrg(params: WeatherParams, response: WeatherResponse)
-  func parseApiOpenWeatherMapOrgResponse(dictionary : NSDictionary, response: WeatherResponse)
+  func loadFromApiOpenWeatherMapOrg(withParams params: WeatherParams, response: WeatherResponse)
+  func parseApiOpenWeatherMapOrgResponseFrom(dictionary : NSDictionary, response: WeatherResponse)
   static func defaultApiOpenWeatherMapOrgParams() -> WeatherParams
   
 }
@@ -33,8 +33,8 @@ class WeatherLoader {
   /// Tries to load weather data
   func loadWeather(response weatherResponse: WeatherResponse){
     
-    loadFromApiOpenWeatherMapOrg(WeatherLoader.defaultApiOpenWeatherMapOrgParams(), response:
-      {weather, error -> Void in
+    loadFromApiOpenWeatherMapOrg(withParams: WeatherLoader.defaultApiOpenWeatherMapOrgParams(),
+      response: { weather, error -> Void in
         //1. first try load from ApiOpenWeatherMapOrg
         
         if error == nil {
@@ -96,7 +96,7 @@ extension WeatherLoader: ApiOpenWeatherMapOrgProtocol {
   }
   
   /// Tries to load weather data according to WeatherParams
-  func loadFromApiOpenWeatherMapOrg(params: WeatherParams, response weatherResponse: WeatherResponse){
+  func loadFromApiOpenWeatherMapOrg(withParams params: WeatherParams, response weatherResponse: WeatherResponse){
     
     //let nsURL: NSURL = NSURL(string: "http://api.openweathermap.org/data/2.5/forecast/daily?q=Vilnius&APPID=2f2b3c6436693e53b6992c6829218f74&lang=en&units=metric&cnt=5")!
     let nsURL: NSURL = getURLFromParams(params)
@@ -109,7 +109,7 @@ extension WeatherLoader: ApiOpenWeatherMapOrgProtocol {
       if let data = data {
         do {
           dictionary = try NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers) as? NSDictionary
-          self.parseApiOpenWeatherMapOrgResponse(dictionary!, response: weatherResponse);
+          self.parseApiOpenWeatherMapOrgResponseFrom(dictionary!, response: weatherResponse);
           
         } catch _ as NSError {
           weatherResponse(nil, ResponseError.NoInternet)
@@ -121,7 +121,7 @@ extension WeatherLoader: ApiOpenWeatherMapOrgProtocol {
   }
   
   /// Parses loaded JSON data (propably exists JSON parsing libraries)
-  func parseApiOpenWeatherMapOrgResponse(dictionary : NSDictionary,
+  func parseApiOpenWeatherMapOrgResponseFrom(dictionary : NSDictionary,
     response weatherResponse: WeatherResponse){
       
       //<Lets show begin

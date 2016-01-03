@@ -12,6 +12,7 @@ import Foundation
 /// * http://rasic.info/bindings-generics-swift-and-mvvm/
 /// * http://fuckingclosuresyntax.com/
 /// * http://blog.scottlogic.com/2015/02/11/swift-kvo-alternatives.html
+/// Question: Does Apple provide any better way for binding?
 class Observable<T>{
   
   /// Defines observer type and property

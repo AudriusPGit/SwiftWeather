@@ -25,7 +25,7 @@ class DicectoryUtils {
   }
   
   /// Removes file
-  static func removeFile(fileName: String) -> Void{
+  static func removeFile(fileName fileName: String) -> Void{
     do{
       try NSFileManager.defaultManager().removeItemAtPath(DicectoryUtils.pathFor(fileName: fileName))
     }

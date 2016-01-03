@@ -9,15 +9,11 @@
 import UIKit
 
 /// Responsible to return weather icons either from http://openweathermap.org/weather-conditions or loaded
-/// from disk. Implemented as a singleton.
+/// from disk.
 class WeatherIcons {
   
-  /// Singleton instance (founded on google)
-  static let sharedInstance = WeatherIcons()
-  
-  
   /// Returns weather icon as UIImage?
-  func icon(iconName: String)->UIImage?{
+  static func icon(iconName: String)->UIImage?{
     
     let image = iconFromApiOpenWeatherMapOrg(iconName);
     
@@ -33,7 +29,7 @@ class WeatherIcons {
   }
   
   /// Returns weather icon from http://openweathermap.org/weather-conditions
-  func iconFromApiOpenWeatherMapOrg(iconName: String)->UIImage?{
+  static func iconFromApiOpenWeatherMapOrg(iconName: String)->UIImage?{
     //<http://openweathermap.org/weather-conditions
     
     let url = NSURL(string: "http://openweathermap.org/img/w/\(iconName).png")
@@ -49,12 +45,12 @@ class WeatherIcons {
   }
   
   /// Saves icon on disk
-  func saveIconOnDisk(imageData data: NSData, iconName: String){
+ static  func saveIconOnDisk(imageData data: NSData, iconName: String){
     data.writeToFile(DicectoryUtils.pathFor(fileName: iconName), atomically: true)
   }
   
   /// Returns saved weather icon from disk
-  func loadIconFromDisk(iconName: String)->UIImage?{
+ static func loadIconFromDisk(iconName: String)->UIImage?{
     let loadedImage = UIImage(contentsOfFile: DicectoryUtils.pathFor(fileName: iconName))
     
     return loadedImage

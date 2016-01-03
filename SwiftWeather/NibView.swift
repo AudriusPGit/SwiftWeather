@@ -20,18 +20,18 @@ class NibView : UIView{
   required override init(frame: CGRect) {
     super.init(frame: frame)
     
-    setupXibView(xibFileName)
+    setupXibViewFrom(xibFileName: xibFileName)
   }
   
   /// Initilization
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
     
-    setupXibView(xibFileName)
+    setupXibViewFrom(xibFileName: xibFileName)
   }
   
   /// Loads view from xib file
-  private func loadViewFromNib(xibFileName: String) -> UIView? {
+  private func loadViewFrom(xibFileName fileName: String) -> UIView? {
     let bundle = NSBundle(forClass: self.dynamicType)
     let nib = UINib(nibName: xibFileName, bundle: bundle)
     
@@ -39,8 +39,8 @@ class NibView : UIView{
   }
   
   /// Loads view from xib file and setups
-  private func setupXibView(xibFileName: String){
-    let loadedView = loadViewFromNib(xibFileName)
+  private func setupXibViewFrom(xibFileName fileName: String){
+    let loadedView = loadViewFrom(xibFileName: fileName)
     
     if let view = loadedView{
       view.frame = bounds
