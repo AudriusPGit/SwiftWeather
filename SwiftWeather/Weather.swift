@@ -8,8 +8,8 @@
 
 import Foundation
 
-/// Holds data for weather and forecasts, also implements NSCoder for saving and loading model to file
-class Weather: NSCoder{
+/// Holds data for weather and forecasts, also implements NSCoding for saving and loading model to file
+class Weather: NSObject, NSCoding{
 
   /// Properties
   var city: String = ""
@@ -18,6 +18,8 @@ class Weather: NSCoder{
   
   var forecasts: [Forecast] = []
   
+  // MARK: - NSCoding
+  // http://stackoverflow.com/questions/25631727/adding-nscoding-as-an-extension
   /// Initilization with coder
   required convenience init?(coder decoder: NSCoder) {
     self.init()
@@ -56,5 +58,5 @@ class Weather: NSCoder{
     let archiverForecats = NSKeyedArchiver.archivedDataWithRootObject(forecasts)
     coder.encodeObject(archiverForecats, forKey: "archiverForecats")
   }
-  
+
 }
