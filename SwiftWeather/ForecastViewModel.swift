@@ -8,13 +8,16 @@
 
 import Foundation
 
+/// View model for ForecastView
 struct ForecastViewModel {
   
+  /// Properties
   var weekDay: Observable<String>
   var icon: Observable<String>
   var maxDayTemperature: Observable<Int>
   var minDayTemperature: Observable<Int>
   
+  /// Initilization
   init(forecast: Forecast) {
     self.weekDay = Observable(forecast.weekDay)
     self.icon = Observable(forecast.icon)

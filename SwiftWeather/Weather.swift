@@ -8,15 +8,18 @@
 
 import Foundation
 
+/// Holds data for weather and forecasts, also implements NSCoder for saving and loading model to file
 class Weather: NSCoder{
+
+  /// Properties
   var city: String = ""
   var icon: String = ""
   var temperature: Int = 0
   
   var forecasts: [Forecast] = []
   
+  /// Initilization with coder
   required convenience init?(coder decoder: NSCoder) {
-    
     self.init()
     
     if let city = decoder.decodeObjectForKey("city") as? String{
@@ -44,6 +47,7 @@ class Weather: NSCoder{
     }
   }
   
+  /// Encodes data from coder
   func encodeWithCoder(coder: NSCoder) {
     coder.encodeObject(self.city, forKey: "city")
     coder.encodeObject(self.icon, forKey: "icon")

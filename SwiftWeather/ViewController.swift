@@ -8,14 +8,18 @@
 
 import UIKit
 
+/// View controller of Main.storyboard
 class ViewController: UIViewController {
   
+  /// @IBOutlet
   @IBOutlet weak var weatherView: WeatherView!
   @IBOutlet weak var forecastViews: UIStackView!
   @IBOutlet weak var activitySpinner: UIActivityIndicatorView!
   
+  /// View model
   var weatherViewModel: WeatherViewModel!
   
+  /// Initilization
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
     
@@ -31,6 +35,7 @@ class ViewController: UIViewController {
     //attachements
     weatherView?.attachViewModel(weatherViewModel)
     
+    /// A BIG MESS!
     for var index = 0; index < forecastViews.arrangedSubviews.count; ++index {
       let forecastView = forecastViews.arrangedSubviews[index] as! ForecastView
       forecastView.attachViewModel(weatherViewModel.forecasts.value[index])
@@ -42,6 +47,7 @@ class ViewController: UIViewController {
     // Dispose of any resources that can be recreated.
   }
   
+  /// Starts load weather
   func startLoadWeather(){
     weatherViewModel?.loadWeatherData()
     activitySpinner?.startAnimating()
@@ -52,17 +58,20 @@ class ViewController: UIViewController {
   }
 }
 
-// MARK: WeatherViewModelProtocol
+// MARK: - WeatherViewModelProtocol
 extension ViewController: WeatherViewModelProtocol{
   
-  func onReceivedWeather(error: ResponseError?)->Void{
+  func onReceivedWeather(
+    error: ResponseError?)->Void{
     
     if error != nil {
       
       let alert = UIAlertController(title: "Error", message: "No Data! Check internet connection!", preferredStyle: UIAlertControllerStyle.Alert)
-      alert.addAction(UIAlertAction(title: "Retry", style: UIAlertActionStyle.Default, handler: { [unowned self] acction -> Void in
-        self.startLoadWeather()
+      alert.addAction(UIAlertAction(title: "Retry", style: UIAlertActionStyle.Default,
+        handler: { [unowned self] acction -> Void in
+          self.startLoadWeather()
         }))
+      
       self.presentViewController(alert, animated: true, completion: nil)
       
     }

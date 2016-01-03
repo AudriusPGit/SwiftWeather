@@ -8,8 +8,10 @@
 
 import Foundation
 
+/// String utils
 class StringUtils {
   
+  /// Returns degree symbol (circle shape)
   static var degreeSymbol: String{
     return "\u{00B0}"
   }

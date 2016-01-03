@@ -8,8 +8,10 @@
 
 import UIKit
 
-
+/// ForecastView inherits NibView, and view is loaded from ForecastView.xib file
 class ForecastView: NibView{
+  
+  /// @IBOutlet
   
   @IBOutlet weak var weekDay: UILabel!
   @IBOutlet weak var icon: UIImageView!
@@ -18,21 +20,23 @@ class ForecastView: NibView{
   @IBOutlet weak var minTemperature: UILabel!
   
   
+  /// Defines xibFileName, from which to load
   override var xibFileName: String{
     return "ForecastView"
   }
   
+  /// Initilization
   required init(frame: CGRect) {
     super.init(frame: frame)
     
   }
-  
+  /// Initilization
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
     
   }
   
-  
+  /// view model
   var viewModel: ForecastViewModel? {
     didSet {
       
@@ -55,11 +59,11 @@ class ForecastView: NibView{
         [unowned self] in
         self.minTemperature.text = String($0) + StringUtils.degreeSymbol
       }
-  
+      
     }
   }
   
-  // Why? i need this =
+  // Why? i need this "=" for working didSet still a magic
   func attachViewModel(viewModel: ForecastViewModel) {
     self.viewModel = viewModel
   }

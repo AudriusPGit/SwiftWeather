@@ -6,12 +6,6 @@
 //  Copyright © 2016 Brolis. All rights reserved.
 //
 
-/*
-loadFromDisk
-loadFromApiOpenWeatherMapOrg
-
-*/
-
 
 import XCTest
 @testable import SwiftWeather

@@ -16,18 +16,21 @@ class NibView : UIView{
     fatalError("This property must be overridden")
   }
   
+  /// Initilization
   required override init(frame: CGRect) {
     super.init(frame: frame)
     
     setupXibView(xibFileName)
   }
   
+  /// Initilization
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
     
     setupXibView(xibFileName)
   }
   
+  /// Loads view from xib file
   private func loadViewFromNib(xibFileName: String) -> UIView? {
     let bundle = NSBundle(forClass: self.dynamicType)
     let nib = UINib(nibName: xibFileName, bundle: bundle)
@@ -35,6 +38,7 @@ class NibView : UIView{
     return nib.instantiateWithOwner(self, options: nil)[0] as? UIView
   }
   
+  /// Loads view from xib file and setups
   private func setupXibView(xibFileName: String){
     let loadedView = loadViewFromNib(xibFileName)
     

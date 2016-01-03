@@ -14,9 +14,11 @@ import Foundation
 /// * http://blog.scottlogic.com/2015/02/11/swift-kvo-alternatives.html
 class Observable<T>{
   
+  /// Defines observer type and property
   typealias Observer = T -> Void
   private var observer: Observer?
   
+  /// Generic property
   var value: T {
     didSet{
       observer?(value)
