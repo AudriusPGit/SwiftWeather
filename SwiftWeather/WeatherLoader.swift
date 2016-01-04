@@ -26,8 +26,8 @@ protocol ApiOpenWeatherMapOrgProtocol{
   
 }
 
-/// Main class for loading wether data. First, try to load data from ApiOpenWeatherMapOrg
-/// in case success saves data on disk, in case of failure tries loaded from disk
+/// Main class for loading weather data. First, tries to load data from ApiOpenWeatherMapOrg
+/// in case success saves data on disk, in case of failure tries load saved data from disk
 class WeatherLoader {
   
   /// Tries to load weather data
@@ -35,7 +35,7 @@ class WeatherLoader {
     
     loadFromApiOpenWeatherMapOrg(withParams: WeatherLoader.defaultApiOpenWeatherMapOrgParams(),
       response: { weather, error -> Void in
-        //1. first try load from ApiOpenWeatherMapOrg
+        //1. first tries load from ApiOpenWeatherMapOrg
         
         if error == nil {
           weatherResponse(weather, error)
@@ -43,7 +43,7 @@ class WeatherLoader {
           return
         }
         else{
-          //2. Second try load from disk
+          //2. Second tries load from disk
           self.loadFromDisk(response: {weather, error -> Void in
             
             if error == nil {
